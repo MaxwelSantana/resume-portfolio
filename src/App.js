@@ -1,58 +1,38 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import About from "./Components/About";
+import Resume from "./Components/Resume";
+import Contact from "./Components/Contact";
+import Testimonials from "./Components/Testimonials";
+import Portfolio from "./Components/Portfolio";
 import "./App.css";
-import lottie from "lottie-web";
-import workingManAnimation from "./lottie/working-man.json";
 
 //https://developer-portfolio-1hanzla100.vercel.app/
 
-function App() {
+const App = () => {
+  const [resumeData, setResumeData] = useState({});
+
   useEffect(() => {
-    lottie.loadAnimation({
-      container: document.querySelector("#working-man"),
-      animationData: workingManAnimation,
-    });
+    fetch("/resumeData.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setResumeData(data);
+      });
   }, []);
+
   return (
     <div className="App">
-      <header className="header">
-        <div className="container">
-          <a href="#home" className="nav__brand">
-            <h2>Maxwel Santana</h2>
-          </a>
-          <nav className="nav">
-            <ul className="nav__list">
-              <li className="nav__item">
-                <a className="nav__link" href="#home">
-                  Home
-                </a>
-              </li>
-              <li className="nav__item">
-                <a className="nav__link" href="#about">
-                  About
-                </a>
-              </li>
-              <li className="nav__item">
-                <a className="nav__link" href="#home">
-                  Works
-                </a>
-              </li>
-              <li className="nav__item">
-                <a className="nav__link" href="#home">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-      <main>
-        <section className="hero">
-          <div className="hero__background"></div>
-          <div id="working-man"></div>
-        </section>
-      </main>
+      <Header data={resumeData.main} />
+      <About data={resumeData.main} />
+      <Resume data={resumeData.resume} />
+      <Portfolio data={resumeData.portfolio} />
+      <Testimonials data={resumeData.testimonials} />
+      <Contact data={resumeData.main} />
+      <Footer data={resumeData.main} />
     </div>
   );
-}
+};
 
 export default App;
