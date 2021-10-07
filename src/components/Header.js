@@ -7,8 +7,7 @@ function Header() {
 
   const handleDocumentScroll = () => {
     const { scrollTop } = document.documentElement || document.body;
-    console.log({ scrollTop });
-    if (scrollTop >= 100) setShow(false);
+    if (scrollTop >= 50) setShow(false);
     else setShow(true);
   };
 

@@ -1,32 +1,7 @@
-
-/* || HERO */
-.hero {
-  min-height: 100vh;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+.container {
   width: 100%;
-  position: relative;
-}
-
-.hero__background {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--bg-gradient);
-}
-
-.hero__container {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.hero__me > h1 {
-  font-size: 2.1875rem;
-  color: var(--text-white);
-  margin-bottom: 2rem;
-}
-
-.hero__me > p {
-  font-size: 1.25rem;
-  color: var(--text-white);
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
