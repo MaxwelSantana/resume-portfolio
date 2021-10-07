@@ -1,54 +1,38 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import "./App.css";
 import lottie from "lottie-web";
 import workingManAnimation from "./lottie/working-man.json";
+import Header from "./components/Header";
 
 //https://developer-portfolio-1hanzla100.vercel.app/
 
 function App() {
+  const workingMan = useRef();
   useEffect(() => {
     lottie.loadAnimation({
-      container: document.querySelector("#working-man"),
+      container: workingMan.current,
       animationData: workingManAnimation,
     });
   }, []);
   return (
     <div className="App">
-      <header className="header">
-        <div className="container">
-          <a href="#home" className="nav__brand">
-            <h2>Maxwel Santana</h2>
-          </a>
-          <nav className="nav">
-            <ul className="nav__list">
-              <li className="nav__item">
-                <a className="nav__link" href="#home">
-                  Home
-                </a>
-              </li>
-              <li className="nav__item">
-                <a className="nav__link" href="#about">
-                  About
-                </a>
-              </li>
-              <li className="nav__item">
-                <a className="nav__link" href="#home">
-                  Works
-                </a>
-              </li>
-              <li className="nav__item">
-                <a className="nav__link" href="#home">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <Header />
       <main>
         <section className="hero">
           <div className="hero__background"></div>
-          <div id="working-man"></div>
+          <div className="hero__container">
+            <div className="hero__me">
+              <h1>Hi all, I'm Maxwel</h1>
+              <p>
+                passionate Full Stack Web Developer and Mobile App Developer
+                having an experience of building Web applications with
+                JavaScript / Reactjs / Nodejs / Python / Django / Flask and some
+                other cool libraries and frameworks and Cross Platform Mobile
+                Apps With Flutter.
+              </p>
+            </div>
+            <div ref={workingMan} id="working-man"></div>
+          </div>
         </section>
       </main>
     </div>

@@ -18,6 +18,10 @@ a {
   font-weight: normal;
 }
 
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
 :root {
   --primary: #69508a;
   --text-white: #fff;
