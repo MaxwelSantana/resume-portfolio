@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
 import workingManAnimation from "../lottie/working-man.json";
 import "./Hero.css";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import { IconButton } from "@mui/material";
 
 function Hero() {
   const workingMan = useRef();
@@ -23,6 +25,26 @@ function Hero() {
             / Nodejs / Python / Django / Flask and some other cool libraries and
             frameworks and Cross Platform Mobile Apps With Flutter.
           </p>
+          <ul className="hero__social-list">
+            <li>
+              <a
+                className="hero__social-btn hero__twitter-btn"
+                href="https://twitter.com/maxwell_sant"
+              >
+                <TwitterIcon />
+              </a>
+            </li>
+            <li>
+              <a className="hero__social-btn hero__twitter-btn" href="#">
+                <TwitterIcon />
+              </a>
+            </li>
+            <li>
+              <a className="hero__social-btn hero__twitter-btn" href="#">
+                <TwitterIcon />
+              </a>
+            </li>
+          </ul>
         </div>
         <div ref={workingMan} id="working-man"></div>
       </div>
